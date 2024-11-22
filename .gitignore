@@ -1,0 +1,58 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfstate*
+*.backup
+*.log
+*.tfvars
+override.tf
+override.tf.json
+.terraform/
+.terraform.lock.hcl
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+__pycache__/
+.Python
+.env
+*.venv
+*.pytest_cache/
+.pytest_cache/
+
+# Kubernetes
+*.kubeconfig
+*.kube/
+*.yaml~
+*.yml~
+*.json~
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+docker-compose.*.yml~
+*.tar
+.docker/
+
+# ArgoCD
+*.argocd-config.yaml
+.argocd/
+argocd-application-crd.yaml
+
+# General system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.orig
+*.tmp
+*.lock

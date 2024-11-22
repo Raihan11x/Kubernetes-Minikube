@@ -1,0 +1,37 @@
+---
+
+name: Complete DevOps Project Pipeline
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build_and_push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v2
+            - name: Set Short SHA
+              run: |
+               echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+            - name: Build Docker Image
+              run: |
+                docker build -t raihan11x/kubernetes-minikube:${{ env.SHORT_SHA }} .
+            - name: Login to Dockerhub
+              run: |
+                echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            - name: Push to Dockerhub
+              run: |
+                docker push raihan11x/kubernetes-minikube:${{ env.SHORT_SHA }}
+            - name: Configure Git Author
+              run: |
+                git config --local user.email "raihan11x@hotmail.com"
+                git config --local user.name "raihan"
+            - name: Update Helm Chart with New Image Tag
+              run: |
+                sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./complete-devops-project-time-printer/values.yaml
+                git add ./complete-devops-project-time-printer/values.yaml
+                git commit -m "Update image tag to ${{ env.SHORT_SHA }}"
+                git push
