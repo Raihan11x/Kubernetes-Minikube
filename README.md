@@ -12,7 +12,7 @@ Before you begin, ensure that you have the following tools installed:
 
 - **Minikube**: A tool for running Kubernetes clusters locally.
 - **kubectl**: The Kubernetes command-line tool to interact with your cluster.
-- **Virtualization Software**: Minikube requires virtualization software like **VirtualBox**, **VMware**, or **HyperKit** (macOS) for running the cluster.
+- **Virtualisation Software**: Minikube requires virtualisation software like **VirtualBox**, **VMware**, or **HyperKit** (macOS) for running the cluster.
 
 ### Installation
 
@@ -97,7 +97,7 @@ kubectl config use-context minikube
 
 Minikube not starting:
 
-Ensure that your virtualization software (e.g., VirtualBox, VMware, etc.) is running and correctly configured.
+Ensure that your virtualisation software (e.g., VirtualBox, VMware, etc.) is running and correctly configured.
 Out of memory error:
 
 Minikube requires a minimum amount of memory. You can adjust the memory allocated to Minikube during the start command:
