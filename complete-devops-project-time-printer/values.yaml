@@ -1,6 +1,6 @@
 image:
   repository: raihan11x/kubernetes-minikube
-  tag: aaac95b
+  tag: 8388742
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
